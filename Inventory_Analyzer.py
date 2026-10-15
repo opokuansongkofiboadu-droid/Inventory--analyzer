@@ -1,4 +1,4 @@
-products=products = [
+products=[
     {
         "sku": "SKU001",
         "name": "Exercise Book",
@@ -131,49 +131,6 @@ def binary_search_sku(skus,target_sku):
             high=middle-1
 
     return False
-        
-
-duplicate_skus=find_duplicate_skus(products)
-inventory=build_inventory(products,duplicate_skus)
-"""low_stocks=find_low_stock(inventory,10)
-categories=group_by_category(inventory)
-report=format_summuray(inventory,categories,low_stocks,duplicate_skus)
-display_report(report)
-
-print(search_by_sku(inventory, "SKU003"))
-    
-
-skus = list(inventory.keys())
-sorted_skus = sorted(skus)
-
-print(linear_search_sku(skus, "SKU003"))
-print(binary_search_sku(sorted_skus, "SKU003"))"""
-
-import time
-
-sizes=[1000,10000,100000,1000000]
-
-for size in sizes:
-    numbers_list=list(range(size))
-    numbers_set=set(numbers_list)
-
-    target =size-1
-
-    start = time.perf_counter()
-    target in numbers_list
-    end = time.perf_counter()
-    list_time = end - start
-
-    start = time.perf_counter()
-    target in numbers_set
-    end = time.perf_counter()
-    set_time = end - start
-
-    print("Size:", size)
-    print("List lookup:", list_time)
-    print("Set lookup:", set_time)
-    print()
-
 
 def find_product(inventory,target):
     for sku, product in inventory.items():
@@ -181,3 +138,14 @@ def find_product(inventory,target):
             return product,sku
        
     return False
+        
+
+duplicate_skus=find_duplicate_skus(products)
+inventory=build_inventory(products,duplicate_skus)
+low_stocks=find_low_stock(inventory,10)
+categories=group_by_category(inventory)
+report=format_summuray(inventory,categories,low_stocks,duplicate_skus)
+display_report(report)
+
+    
+
