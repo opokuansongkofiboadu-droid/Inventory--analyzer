@@ -83,7 +83,7 @@ def group_by_category(inventory):
 def search_by_sku(inventory,sku):
     return inventory.get(sku)
 
-def format_summuray(inventory,categories,low_stocks,duplicate_skus):
+def format_summary(inventory,categories,low_stocks,duplicate_skus):
     report=""
     report+= "Iventory Summary\n"
 
@@ -106,12 +106,16 @@ def format_summuray(inventory,categories,low_stocks,duplicate_skus):
 def display_report(report):
     print(report)
 
+def write_report(report):
+    with open("report.txt","w")as file:
+        file.write(report)
+
 def linear_search_sku(products, target_sku):
     for product in products:
         if product== target_sku:
             return True
 
-    return None
+    return False
 
 
 
@@ -144,8 +148,9 @@ duplicate_skus=find_duplicate_skus(products)
 inventory=build_inventory(products,duplicate_skus)
 low_stocks=find_low_stock(inventory,10)
 categories=group_by_category(inventory)
-report=format_summuray(inventory,categories,low_stocks,duplicate_skus)
+report=format_summary(inventory,categories,low_stocks,duplicate_skus)
 display_report(report)
+write_report(report)
 
     
 
