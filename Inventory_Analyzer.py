@@ -173,3 +173,11 @@ for size in sizes:
     print("List lookup:", list_time)
     print("Set lookup:", set_time)
     print()
+
+
+def find_product(inventory,target):
+    for sku, product in inventory.items():
+        if product["name"].lower()==target.lower():
+            return product,sku
+       
+    return False
